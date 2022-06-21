@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'getAllData'])->name("home");
+
+Route::resource('alumnos', AlumnoController::class);
+Route::resource('asignatura', AsignaturaController::class);
+Route::resource('profesor', ProfesorController::class);

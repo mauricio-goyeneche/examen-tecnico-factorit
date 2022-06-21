@@ -1,0 +1,26 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+// Variables
+@import 'variables';
+
+$info: #904e95;
+$info-active: #660e6c;
+
+
+$pagination-color: #fff;
+$pagination-bg: $info;
+$pagination-border-color: #000;
+
+$pagination-active-bg: $info-active;
+$pagination-active-border-color: #000;
+
+$pagination-disabled-color: #000;
+$pagination-disabled-bg: $info;
+$pagination-disabled-border-color: #000;
+
+$form-check-input-checked-bg-color: $info;
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
