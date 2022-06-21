@@ -38,8 +38,8 @@ class ProfesorController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nombre' => 'required|regex:/^[a-zA-Z\s]*$/',
-            'apellido' => 'required|regex:/^[a-zA-Z\s]*$/',
+            'nombre' => "required|regex:/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
+            'apellido' => "required|regex:/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u",
         ], [
             'nombre.required' => 'El campo "nombre" es requerido.',
             'nombre.regex' => 'El campo "nombre" solo puede conterner letras y espacios.',
@@ -47,6 +47,8 @@ class ProfesorController extends Controller
             'apellido.regex' => 'El campo "apellido" solo puede conterer letras y espacios.',
         ]);
         $profesor = new Profesor($request->input());
+        $profesor->nombre = ucwords($profesor->nombre);
+        $profesor->apellido = ucwords($profesor->apellido);
         $profesor->saveOrFail();
 
         $asiganturaInput = $request->input('asignaturas');

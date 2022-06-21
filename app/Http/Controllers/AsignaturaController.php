@@ -38,12 +38,12 @@ class AsignaturaController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'descripcion' => 'required|regex:/^[a-zA-Z\s]*$/',
+            'descripcion' => "required",
         ], [
             'descripcion.required' => 'El campo "descripcion" es requerido.',
-            'descripcion.regex' => 'El nombre de la asignatura solo puede conterner letras y espacios.'
         ]);
         $asignatura = new Asignatura($request->input());
+        $asignatura->descripcion = ucwords($asignatura->descripcion);
         $asignatura->saveOrFail();
         return redirect()->route("home")->with('success', 'Asignatura creada con éxito!');
     }
