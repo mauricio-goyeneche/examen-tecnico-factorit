@@ -2,8 +2,6 @@
 
 Este es un proyecto planeado por FactorIT para realizar un sistema académico sobre el framework Laravel de PHP.
 
--   Link del repositorio de [GitHub](https://github.com/mauricio-goyeneche/examen-tecnico-factorit).
-
 ## Tecnologías Utilizadas
 
 Realicé este proyecto con:
